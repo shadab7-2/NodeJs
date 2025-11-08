@@ -1,9 +1,18 @@
-const amount = 9
+// 
+// Import the built-in 'http' module
+const http = require('http');
 
-if (amount < 10) {
-  console.log('small number')
-} else {
-  console.log('large number')
-}
+// Create a server
+const server = http.createServer((req, res) => {
+  res.statusCode = 200; // HTTP success code
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World! This is my first Node.js server ');
+});
 
-console.log(`hey it's my first node app!!!`)
+// Define the port number
+const PORT = 3000;
+
+// Start the server
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
